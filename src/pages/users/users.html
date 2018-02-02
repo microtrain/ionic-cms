@@ -14,9 +14,13 @@
 
 
 <ion-content padding>
-  <ion-list>
-    <ion-item *ngFor="let user of users">
-      {{ user.username }}
-    </ion-item>
+  <ion-list *ngIf="users">
+    <button ion-item *ngFor="let user of users" (click)="toUser(user._id)">
+      <ion-avatar item-start>
+        <img *ngIf="!user.githubData" src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d51?f=y&d=mm">
+        <img *ngIf="user.githubData" src={{user.githubData.avatar_url}}>
+      </ion-avatar>
+      {{user.username}}
+    </button>
   </ion-list>
 </ion-content>

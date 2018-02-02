@@ -4,6 +4,8 @@ import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-an
 import { UserProvider } from '../../providers/user/user';
 import { User } from '../../models/user/user';
 
+import { UserPage } from '../user/user';
+
 @IonicPage()
 @Component({
   selector: 'page-users',
@@ -45,4 +47,8 @@ export class UsersPage {
     this.loader.present();
   }
 
+  public toUser(id: string): void {
+    this.navCtrl.push(UserPage, { id: id });
+  }
+  
 }
