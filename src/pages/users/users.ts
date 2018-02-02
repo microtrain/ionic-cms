@@ -26,7 +26,6 @@ export class UsersPage {
 
         this.users = response.users;
 
-        console.log(this.users);
       }
     );
   }
