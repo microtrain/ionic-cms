@@ -15,11 +15,11 @@ export class UsersPage {
     public navParams: NavParams,
     private userProvider: UserProvider
   ) {
-    this.getUser();
+    this.getUsers();
   }
 
-  private getUser(): void {
-    this.userProvider.getUser();
+  private getUsers(): void {
+    this.userProvider.getUsers();
   }
 
 }
