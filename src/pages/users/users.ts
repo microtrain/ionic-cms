@@ -5,6 +5,7 @@ import { UserProvider } from '../../providers/user/user';
 import { User } from '../../models/user/user';
 
 import { UserPage } from '../user/user';
+import { UserCreatePage } from '../user-create/user-create';
 
 @IonicPage()
 @Component({
@@ -50,5 +51,8 @@ export class UsersPage {
   public toUser(id: string): void {
     this.navCtrl.push(UserPage, { id: id });
   }
-  
+
+  public toUserCreate(id: string): void {
+    this.navCtrl.push(UserCreatePage);
+  }
 }
