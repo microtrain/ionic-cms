@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 
 import { User } from '../../models/user/user';
 import { UserProvider } from '../../providers/user/user';
@@ -11,19 +12,25 @@ import { UserProvider } from '../../providers/user/user';
 })
 export class UserCreatePage {
 
+  private user : FormGroup;
   public user = new User;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private userProvider: UserProvider
+    private userProvider: UserProvider,
+    private formBuilder: FormBuilder
   ) {
-    //Just a test
-    this.createUser({'email':'test@exmaple.com', 'username':'hello'});
+    this.user = this.formBuilder.group({
+      username: ['', Validators.required],
+      email: ['', Validators.required],
+      first_name: [],
+      last_name: []
+    });
   }
 
-  public createUser(user: User): void {
-    this.userProvider.createUser(user).subscribe(
+  public createUser(): void {
+    this.userProvider.createUser(this.user.value).subscribe(
       (response)=>{
         console.log(response);
       }
