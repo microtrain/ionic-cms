@@ -11,7 +11,7 @@ import { User } from '../../models/user/user';
 })
 export class UsersPage {
 
-  private loader: LoadingController;
+  private loader: any;
 
   public users: User[];
 
@@ -29,7 +29,7 @@ export class UsersPage {
     this.presentLoader();
 
     this.userProvider.getUsers().subscribe(
-      (response)=>{
+      (response: any)=>{
         this.users = response.users;
         this.loader.dismiss();
       }
