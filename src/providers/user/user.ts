@@ -13,8 +13,11 @@ export class UserProvider {
 
   constructor(public http: HttpClient) { }
 
-  public getUser(){
-    console.log('Get User');
+  //1. Implement the getUser() logic. This will accept a single argument of type
+  // string. The base URL will be modified to find the endpoint for a single
+  // user and pass the argument.
+  public getUser(id: string){
+    return this.http.get<User>(this.url + `/view/${id}`);
   }
 
   public getUsers(): Observable<User> {
