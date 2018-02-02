@@ -18,10 +18,12 @@ export class UserCreatePage {
     public navParams: NavParams,
     private userProvider: UserProvider
   ) {
+    //Just a test
+    this.createUser();
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad UserCreatePage');
+  public createUser(): void {
+    this.userProvider.createUser();
   }
 
 }
