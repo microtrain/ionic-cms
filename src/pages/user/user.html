@@ -12,7 +12,47 @@
 
 </ion-header>
 
-
 <ion-content padding>
+  <ion-card *ngIf="user">
+
+    <ion-item>
+      <!-- Start with an avatar, if the user has GitHub data, use the GitHub avatar-->
+      <ion-avatar item-start>
+        <img *ngIf="!user.githubData" src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d51?f=y&d=mm">
+        <img *ngIf="user.githubData" src={{user.githubData.avatar_url}}>
+      </ion-avatar>
+      <h2>{{user.first_name}} {{user.last_name}}</h2>
+      <p>{{user.email}}</p>
+    </ion-item>
+
+
+    <ion-row>
+      <!-- If the user has GitHub data link to that users GitHub account-->
+      <ion-col *ngIf="user.githubData">
+        <button (click)="toUrl(user.githubData.html_url)" ion-button icon-left clear small>
+          <ion-icon name="logo-github"></ion-icon>
+          <div>GitHub</div>
+        </button>
+      </ion-col>
+
+    </ion-row>
+
+  </ion-card>
+
+  <!-- Future controls, to be wired up as new functionality is developed -->
+  <ion-fab right bottom>
+    <button ion-fab color="light"><ion-icon name="arrow-dropleft"></ion-icon></button>
+    <ion-fab-list side="left">
+
+      <button ion-fab color="primary">
+        <ion-icon name="md-create"></ion-icon>
+      </button>
+
+      <button ion-fab color="danger">
+        <ion-icon name="trash"></ion-icon>
+      </button>
+
+    </ion-fab-list>
+  </ion-fab>
 
 </ion-content>
