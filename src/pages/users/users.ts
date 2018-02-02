@@ -18,7 +18,7 @@ export class UsersPage {
     this.getUser();
   }
 
-  public getUser(): void {
+  private getUser(): void {
     this.userProvider.getUser();
   }
 
