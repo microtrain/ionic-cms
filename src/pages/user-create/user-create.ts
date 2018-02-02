@@ -19,7 +19,7 @@ export class UserCreatePage {
     private userProvider: UserProvider
   ) {
     //Just a test
-    this.createUser({});
+    this.createUser({'email':'test@exmaple.com', 'username':'hello'});
   }
 
   public createUser(user: User): void {
