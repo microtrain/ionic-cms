@@ -19,11 +19,15 @@ export class UserCreatePage {
     private userProvider: UserProvider
   ) {
     //Just a test
-    this.createUser();
+    this.createUser({});
   }
 
-  public createUser(): void {
-    this.userProvider.createUser();
+  public createUser(user: User): void {
+    this.userProvider.createUser(user).subscribe(
+      (response)=>{
+        console.log(response);
+      }
+    );
   }
 
 }
