@@ -11,6 +11,8 @@ import { UserProvider } from '../../providers/user/user';
 })
 export class UserCreatePage {
 
+  public user = new User;
+
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
