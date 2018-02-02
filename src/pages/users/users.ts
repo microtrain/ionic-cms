@@ -18,8 +18,13 @@ export class UsersPage {
     this.getUsers();
   }
 
+  //4. Subscribe to the observable and catch the response.
   private getUsers(): void {
-    this.userProvider.getUsers();
+    this.userProvider.getUsers().subscribe(
+      (response)=>{
+        console.log(response);
+      }
+    );
   }
 
 }
