@@ -13,7 +13,6 @@ import { UserProvider } from '../../providers/user/user';
 export class UserCreatePage {
 
   private user : FormGroup;
-  public user = new User;
 
   constructor(
     public navCtrl: NavController,
