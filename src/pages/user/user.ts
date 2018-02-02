@@ -26,7 +26,6 @@ export class UserPage {
     this.userProvider.getUser(id).subscribe(
       (response: any)=>{
         this.user = response.user;
-        console.log(this.user);
       }
     );
   }
