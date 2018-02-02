@@ -16,7 +16,7 @@
     </ion-item>
     <ion-item>
       <ion-label floating>Email</ion-label>
-      <ion-input type="text" formControlName="email"></ion-input>
+      <ion-input type="email" formControlName="email"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label floating>First Name</ion-label>
@@ -26,6 +26,10 @@
       <ion-label floating>Last Name</ion-label>
       <ion-input type="text" formControlName="last_name"></ion-input>
     </ion-item>
-    <button ion-button type="submit" [disabled]="!user.valid">Submit</button>
+    <ion-row>
+      <ion-col padding>
+        <button ion-button type="submit" [disabled]="!user.valid">Submit</button>
+      </ion-col>
+    </ion-row>
   </form>
 </ion-content>
