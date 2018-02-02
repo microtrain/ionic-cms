@@ -15,10 +15,11 @@ export class UsersPage {
     public navParams: NavParams,
     private userProvider: UserProvider
   ) {
+    this.getUser();
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad UsersPage');
+  public getUser(): void {
+    this.userProvider.getUser();
   }
 
 }
