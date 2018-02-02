@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 
+import { UserPage } from '../../pages/user/user';
 import { User } from '../../models/user/user';
 import { UserProvider } from '../../providers/user/user';
 
@@ -30,8 +31,8 @@ export class UserCreatePage {
 
   public createUser(): void {
     this.userProvider.createUser(this.user.value).subscribe(
-      (response)=>{
-        console.log(response);
+      (response: any)=>{
+        this.navCtrl.push(UserPage, { id: response.user._id } );
       }
     );
   }
