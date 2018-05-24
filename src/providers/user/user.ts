@@ -18,7 +18,7 @@ export class UserProvider {
   constructor(public http: HttpClient) { }
 
   public getUser(id: string): Observable<User>{
-    return this.http.get<User>(this.url + `/view/${id}`);
+    return this.http.get<User>(this.url + `/${id}`);
   }
 
   public getUsers(): Observable<User> {
@@ -26,7 +26,7 @@ export class UserProvider {
   }
 
   public createUser (user: User): Observable<User> {
-    return this.http.post<User>(this.url + '/create', user, httpOptions);
+    return this.http.post<User>(this.url, user, httpOptions);
   }
 
   public updateUser(){

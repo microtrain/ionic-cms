@@ -14,6 +14,8 @@ import { UserProvider } from '../../providers/user/user';
 export class UserCreatePage {
 
   private user : FormGroup;
+  public errorMessage: string;
+  public errors: Array<any> = [];
 
   constructor(
     public navCtrl: NavController,
@@ -22,17 +24,31 @@ export class UserCreatePage {
     private formBuilder: FormBuilder
   ) {
     this.user = this.formBuilder.group({
-      username: ['', Validators.required],
-      email: ['', Validators.required],
+      username: [],
+      email: [],
       first_name: [],
       last_name: []
     });
   }
 
+
+  public response(response: any):void {
+
+    if(response.success===false){
+      this.errorMessage = response.error._message;
+      this.errors = response.error.errors;
+    }
+
+    if(response.success===true){
+      this.navCtrl.push(UserPage, { id: response.user._id } );
+    }
+
+  }
+
   public createUser(): void {
     this.userProvider.createUser(this.user.value).subscribe(
       (response: any)=>{
-        this.navCtrl.push(UserPage, { id: response.user._id } );
+        this.response(response);
       }
     );
   }
